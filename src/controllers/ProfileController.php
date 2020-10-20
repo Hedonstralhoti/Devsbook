@@ -50,6 +50,18 @@ class ProfileController extends Controller {
 
     }
 
-  
+    public function follow($atts){
+        $to = $atts['id'];
+
+        if(UserHandler::idExists($to)) {
+            if(UserHandler::isFollowing($this->loggedUser->id, $to)){
+                UserHandler::unfollow($this->loggedUser->id, $to);
+            }else {
+                UserHandler::follow($this->loggedUser->id, $to);
+            }
+        }
+
+        $this->redirect('/perfil/'.$to);
+    }
 
 }
