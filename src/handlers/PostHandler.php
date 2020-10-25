@@ -97,7 +97,7 @@ class PostHandler {
         return ['posts' => $posts, 'pageCount' => $pageCount, 'currentPage' => $page];
     }
 
-    public function getPhotosFrom($idUser){
+    public static function getPhotosFrom($idUser){
         $photosData = Post::select()
         ->where('id_user', $idUser)
         ->where('type', 'photo')
