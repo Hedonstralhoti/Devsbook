@@ -1,4 +1,4 @@
-<div class="box feed-item">
+<div class="box feed-item" data-id="<?=$data->id;?>">
     <div class="box-body">
         <div class="feed-item-head row mt-20 m-width-20">
             <div class="feed-item-head-photo">
@@ -27,7 +27,7 @@
             <?=nl2br($data->body);?>
         </div>
         <div class="feed-item-buttons row mt-20 m-width-20">
-            <div class="like-btn <?($data->liked ? 'on':'');?>"><?=$data->LikeCount;?></div>
+            <div class="like-btn <?($data->liked ? 'on':'');?>"><?=$data->likeCount;?></div>
             <div class="msg-btn"><?=count($data->comments);?></div>
         </div>
         <div class="feed-item-comments">  
