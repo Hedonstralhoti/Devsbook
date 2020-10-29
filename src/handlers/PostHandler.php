@@ -90,7 +90,16 @@ class PostHandler {
             'id_post' => $id,
             'id_user' => $loggedUserId,
             'created_at' => date('Y-m-d H:i:s')
-            ])->execute();
+        ])->execute();
+    }
+
+    public static function addComment($id, $txt, $loggedUserId) {
+        PostComment::insert([
+            'id_post' => $id,
+            'id_user' => $loggedUserId,
+            'created_at' => date('Y-m-d H:i:s'),
+            'body' => $txt
+        ])->execute();
     }
 
     public static function getUserFeed($idUser, $page, $loggedUserId){
